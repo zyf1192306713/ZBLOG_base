@@ -9,13 +9,18 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/proxy": "^2.1.0",
+    "axios": "^0.22.0",
     "core-js": "^3.15.1",
     "element-ui": "^2.15.2",
+    "js-cookie": "^3.0.1",
     "nuxt": "^2.15.7"
   },
   "devDependencies": {
     "less": "^3.9.0",
     "less-loader": "^4.0.1",
+    "vue-particles": "^1.0.9",
     "webpack": "^4.23.0"
   }
 }

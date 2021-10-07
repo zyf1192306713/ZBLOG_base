@@ -21,19 +21,6 @@ export default {
   methods: {
     getAllCategorty() {
       let pages = this.$site.pages;
-      console.log(111111111111,pages)
-      console.log(111111111111,pages)
-      console.log(111111111111,pages)
-      console.log(111111111111,pages)
-      console.log(111111111111,pages)
-      console.log(111111111111,pages)
-      console.log(111111111111,pages)
-      console.log(pages)
-      console.log(pages)
-      console.log(pages)
-      console.log(pages)
-      console.log(pages)
-      console.log(pages)
 
       console.log(pages)
       pages = pages.filter((item) => {

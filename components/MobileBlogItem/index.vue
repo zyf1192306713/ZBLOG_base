@@ -1,19 +1,19 @@
 <template>
-  <router-link :to="path" class="mobile-blog-item">
+  <router-link to="path" class="mobile-blog-item">
     <div class="item-left">
       <img :src="source" alt class="left-image" />
     </div>
     <div class="item-right">
       <div class="title">{{ title }}</div>
-      <div class="content">{{ content }}</div>
+      <div class="content">{{ mdContent }}</div>
       <div class="bottom">
         <span class="time">
           <i class="iconfont iconshizhong"></i>
-          {{ time }}
+          {{ creatTime }}
         </span>
         <span class="category">
           <i class="iconfont iconlabel"></i>
-          {{ category }}
+          {{ categoryName }}
         </span>
       </div>
     </div>
@@ -25,9 +25,9 @@ export default {
   props: [
     "source",
     "title",
-    "content",
-    "time",
-    "category",
+    "mdContent",
+    "creatTime",
+    "categoryName",
     "url",
     "id",
     "path",

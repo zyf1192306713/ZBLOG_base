@@ -1,8 +1,8 @@
 function sortBlog(blogs) {
     blogs.sort((a, b) => {
       return (
-        new Date(b.frontmatter.date).getTime() -
-        new Date(a.frontmatter.date).getTime()
+        new Date(b.createTime).getTime() -
+        new Date(a.createTime).getTime()
       );
     });
     return blogs;

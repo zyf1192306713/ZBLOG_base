@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <Navbar/>
+    <Navbar></Navbar>
     <vue-particles
       class="bg"
       color="#fff"
@@ -28,7 +28,7 @@
         联系我
       </router-link>
     </div>
-    <Footer/>
+    <Footer></Footer>
   </div>
 </template>
 

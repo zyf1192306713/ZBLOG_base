@@ -94,10 +94,7 @@ export default {
         }
     },
     mounted(){
-        console.log(1111111111111)
-        
         this.contact = this.constant.theme.contact
-        console.log(this.constant.theme)
     }
 };
 </script>

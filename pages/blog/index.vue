@@ -1,6 +1,8 @@
 <template>
   <div class="labels-container">
+    <!-- 头部导航 -->
     <my-header></my-header>
+    <!-- 背景 -->
     <vue-particles
       class="bg"
       color="#fff"
@@ -19,32 +21,40 @@
       :clickEffect="true"
       clickMode="push"
     ></vue-particles>
+    
+    <!-- 中间的内容 -->
     <div class="label-content">
       <div class="left">
+
+        <!-- 不知道 好像是手机版 -->
         <div class="mobile-classify-label">
           <mobile-label />
         </div>
+
         <div class="picLink">
-          <!-- <img :src="Blogs[0].frontmatter.picture" alt class="picture" /> -->
+          <img :src="firstBlog.image" alt class="picture" />
         </div>
+        
         <div class="detail animated slow bounceInLeft">
           <div class="title-label">
-            <!-- <span class="title">{{ Blogs[0].frontmatter.title }}</span> -->
+            <span class="title">{{ firstBlog.title }}</span>
             <span class="label">
               <i class="iconfont iconlabel"></i>
-              <!-- {{ Blogs[0].frontmatter.category }} -->
+              {{ firstBlog.categoryName }}
             </span>
           </div>
           <!-- <div class="content">{{ Blogs[0].frontmatter.desc }}</div> -->
+          <div class="content">{{ firstBlog.summary }}</div>
           <div class="bottom-content">
             <div class="bottom-left">
               <span class="time">
                 <i class="iconfont iconshizhong"></i>
                 <!-- {{ Blogs[0].frontmatter.date }} -->
+                {{ firstBlog.createTime }}
               </span>
               <span class="likes">
                 <i class="iconfont iconlabel"></i>
-                <!-- {{ Blogs[0].frontmatter.category }} -->
+                {{ firstBlog.categoryName }}
               </span>
             </div>
             <!-- <router-link class="bottom-right" :to="Blogs[0].path">
@@ -56,39 +66,45 @@
 
         <div class="recently-blog-mobile">
           <span class="recently-title">最近博客</span>
-          <!-- <mobile-blog-item
-            v-for="(item, index) in Blogs"
+          <mobile-blog-item
+            v-for="(item, index) in blogs"
             :key="index"
-            :source="item.frontmatter.picture"
-            :title="item.frontmatter.title"
-            :content="item.frontmatter.desc"
-            :time="item.frontmatter.date"
+            :source="item.image"
+            :title="item.title"
+            :content="item.summary"
+            :time="item.createTime"
             :path="item.path"
-            :category="item.frontmatter.category"
-          /> -->
+            :category="item.categoryName"
+          />
         </div>
 
         <div class="recently-blog">
           <span class="recently-title">最近博客</span>
-          <!-- <div class="blog-container">
+          <div class="blog-container">
             <blog-item
-              v-for="(item, index) in Blogs"
+              v-for="(item, index) in blogs"
               :key="index"
-              :source="item.frontmatter.picture"
-              :title="item.frontmatter.title"
-              :content="item.frontmatter.desc"
+              :source="item.image"
+              :title="item.title"
+              :content="item.summary"
               :path="item.path"
-              :time="item.frontmatter.date"
-              :category="item.frontmatter.category"
+              :time="item.createTime"
+              :category="item.categoryName"
             />
-          </div> -->
+          </div>
         </div>
       </div>
+
+
       <div class="right">
+        <!-- 标签 -->
         <label-card />
+        <!-- 联系我 -->
         <info-card />
       </div>
     </div>
+
+    <!-- 底部 -->
     <my-footer></my-footer>
   </div>
 </template>
@@ -102,26 +118,38 @@ import InfoCard from "../../components/InfoCard";
 import MobileBlogItem from "../../components/MobileBlogItem";
 import MobileLabel from "../../components/MobileLabel";
 import { sortBlog } from "../../utils";
+
+import api from "../../api/blog.js";
 export default {
   props: ["label"],
   data() {
     return {
-      Blogs: [],
+      blogs: [],
       total: 0,
       labels: [],
+      firstBlog: {}
     };
   },
-  methods: {
-    // getRecentBlogs() {
-    //   let pages = this.$site.pages;
-    //   return pages.filter((item) => {
-    //     const { date } = item.frontmatter;
-    //     return date !== undefined;
-    //   });
-    // },
+  mounted(){
+    this.getFirst();
+    this.getRecentBlogs();
   },
-  created() {
-    // this.Blogs = sortBlog(this.getRecentBlogs()).slice(0, 8);
+  methods: {
+    getRecentBlogs(){
+      api.page().then(res => {
+        let pages = res.data.data
+        pages.filter((item) => {
+          return item !== undefined;
+        });
+        this.blogs = sortBlog(pages).slice(0, 8);
+      })
+    },
+    getFirst(){
+      api.getFirst().then(res => {
+        
+        this.firstBlog = res.data.data
+      })
+    },
   },
   components: {
     MyHeader,
