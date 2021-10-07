@@ -32,30 +32,30 @@ var constant= {
                 },
                 // 个人信息卡片
                 infoCard: {
-                // 头像
-                headerPic: "https://libra321.oss-cn-huhehaote.aliyuncs.com/avatar.jpg",
-                // 姓名
-                name: "Mr.Z",
-                // 邮箱
-                mail: "zyf208513@gmail.com",
+                    // 头像
+                    headerPic: "https://zboot.oss-cn-shanghai.aliyuncs.com/qrcode/avatar.jpg",
+                    // 姓名
+                    name: "Mr.Z",
+                    // 邮箱
+                    mail: "zyf208513@gmail.com",
                 },
                 // 联系人页面
                 contact: {
-                title: "Hello There !!!!",
-                subTitle1: "Thank you for visiting my blog",
-                subTitle2: "Hope we can make progress together",
-                // QQ二维码地址
-                qq:
-                    "https://libra321.oss-cn-huhehaote.aliyuncs.com/blog/weixin-qrcode.png",
-                // 微信二维码地址
-                wechat:
-                    "https://libra321.oss-cn-huhehaote.aliyuncs.com/blog/weixin-qrcode.png",
-                // 邮箱
-                mail: "zyf208513@gmail.com",
-                // github地址
-                github: "https://github.com/Libra11",
-                // 头像图片地址
-                headerPic: "https://libra321.oss-cn-huhehaote.aliyuncs.com/avatar.jpg",
+                    title: "Hello There !!!!",
+                    subTitle1: "Thank you for visiting my blog",
+                    subTitle2: "Hope we can make progress together",
+                    // QQ二维码地址
+                    qq:
+                        "https://zboot.oss-cn-shanghai.aliyuncs.com/qrcode/qq-qrcode.png",
+                    // 微信二维码地址
+                    wechat:
+                        "https://zboot.oss-cn-shanghai.aliyuncs.com/qrcode/weixin-qrcode.png",
+                    // 邮箱
+                    mail: "zyf208513@gmail.com",
+                    // github地址
+                    github: "https://github.com/zyf1192306713",
+                    // 头像图片地址
+                    headerPic: "https://zboot.oss-cn-shanghai.aliyuncs.com/qrcode/avatar.jpg",
                 },
                 comment: {
                 showComment: true,

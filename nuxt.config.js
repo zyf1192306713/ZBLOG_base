@@ -42,5 +42,37 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^element-ui/],
-  }
+  },
+
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        path: '/',
+        name: 'index',
+        component: resolve(__dirname, 'pages/index.vue')
+      }, 
+      {
+        path: '/blog',
+        name: 'blog',
+        component: resolve(__dirname, 'pages/blog/index.vue')
+      },
+      {
+        path: '/tag',
+        name: 'tag',
+        component: resolve(__dirname, 'pages/tag/index.vue')
+      },
+      //时间线
+      {
+        path: '/timeLine',
+        name: 'timeLine',
+        component: resolve(__dirname, 'pages/timeLine/index.vue')
+      },
+      {
+        path: '/contact',
+        name: 'contact',
+        component: resolve(__dirname, 'pages/contact/index.vue')
+      }
+      )
+    }
+  },
 }

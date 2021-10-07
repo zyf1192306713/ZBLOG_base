@@ -8,7 +8,7 @@
         <router-link to="/" class="link">主页</router-link>
       </li>
       <li class="menu-item">
-        <router-link to="/blog" class="link">博客</router-link>
+        <nuxt-link to="/blog" class="link">博客</nuxt-link>
       </li>
       <li class="menu-item">
         <router-link to="/tag" class="link">标签</router-link>
@@ -28,7 +28,7 @@
       <search-box></search-box>
     </div>
     <span class="mobile-nav" @click="handleMobileNav">
-      <i class="iconfont iconnav"></i>
+      <i class="iconfont iconnav">这里加个图标</i>
     </span>
     <transition name="fade">
       <nav v-show="showNav" class="mobile-nav-item">
@@ -120,8 +120,8 @@ export default {
     };
   },
   created() {
-    this.getAllBlogsNum();
-    this.getAllCategoryNum();
+    // this.getAllBlogsNum();
+    // this.getAllCategoryNum();
   },
   mounted(){
       this.logo = this.constant.theme.logo

@@ -2,10 +2,10 @@
   <div class="my">
     <div class="header-info">
       <div class="avatar">
-        <img :src="$themeConfig.infoCard.headerPic" alt class="avatar-img" />
+        <img :src="this.infoCard.headerPic" alt class="avatar-img" />
       </div>
-      <span class="name">{{ $themeConfig.infoCard.name }}</span>
-      <i class="mail">{{ $themeConfig.infoCard.mail }}</i>
+      <span class="name">{{ this.infoCard.name }}</span>
+      <i class="mail">{{ this.infoCard.mail }}</i>
       <div class="statistics">
         <span class="articles">
           {{ totalCount }}
@@ -28,33 +28,41 @@ export default {
     return {
       totalCount: 0,
       categoryCount: 0,
+      infoCard:{
+        headerPic:'',
+        name:'',
+        mail:'',
+      }
     };
   },
   created() {
-    this.getAllBlogsNum();
-    this.getAllCategoryNum();
+    // this.getAllBlogsNum();
+    // this.getAllCategoryNum();
+  },
+  mounted(){
+    this.infoCard = this.constant.theme.infoCard
   },
   methods: {
     getAllBlogsNum() {
-      let pages = this.$site.pages;
-      pages = pages.filter((item) => {
-        const { date } = item.frontmatter;
-        return date !== undefined;
-      });
-      this.totalCount = pages.length;
+      // let pages = this.$site.pages;
+      // pages = pages.filter((item) => {
+      //   const { date } = item.frontmatter;
+      //   return date !== undefined;
+      // });
+      // this.totalCount = pages.length;
     },
     getAllCategoryNum() {
-      let pages = this.$site.pages;
-      pages = pages.filter((item) => {
-        const { date } = item.frontmatter;
-        return date !== undefined;
-      });
-      let res = [];
-      pages.forEach((item) => {
-        let category = item.frontmatter.category;
-        res.push(category);
-      });
-      this.categoryCount = new Set(res).size;
+      // let pages = this.$site.pages;
+      // pages = pages.filter((item) => {
+      //   const { date } = item.frontmatter;
+      //   return date !== undefined;
+      // });
+      // let res = [];
+      // pages.forEach((item) => {
+      //   let category = item.frontmatter.category;
+      //   res.push(category);
+      // });
+      // this.categoryCount = new Set(res).size;
     },
   },
 };
