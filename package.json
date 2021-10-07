@@ -13,5 +13,9 @@
     "element-ui": "^2.15.2",
     "nuxt": "^2.15.7"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "less": "^3.9.0",
+    "less-loader": "^4.0.1",
+    "webpack": "^4.23.0"
+  }
 }
