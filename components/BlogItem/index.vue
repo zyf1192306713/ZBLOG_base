@@ -1,5 +1,5 @@
 <template>
-  <router-link to="11" class="blog-item">
+  <nuxt-link :to="{name:'blogDetails',params:{id:id}}" class="blog-item">
     <div class="img-container">
       <img :src="source" alt class="img" />
     </div>
@@ -17,12 +17,12 @@
         </span>
       </div>
     </div>
-  </router-link>
+  </nuxt-link>
 </template>
 
 <script>
 export default {
-  props: ["source", "title", "mdContent", "createTime", "categoryName", "path"],
+  props: ["id","source", "title", "mdContent", "createTime", "categoryName", "path"],
 };
 </script>
 

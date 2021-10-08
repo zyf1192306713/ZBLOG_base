@@ -20,25 +20,25 @@ export default {
   },
   methods: {
     getAllCategorty() {
-      let pages = this.$site.pages;
+      // let pages = this.$site.pages;
 
-      console.log(pages)
-      pages = pages.filter((item) => {
-        const { date } = item.frontmatter;
-        return date !== undefined;
-      });
-      let res = ["All"];
-      pages.forEach((item) => {
-        let category = item.frontmatter.category;
-        if (typeof category === "string") {
-          res.push(category);
-        } else if (Array.isArray(category)) {
-          category.forEach((i) => {
-            res.push(i);
-          });
-        }
-      });
-      return new Set(res);
+      // console.log(pages)
+      // pages = pages.filter((item) => {
+      //   const { date } = item.frontmatter;
+      //   return date !== undefined;
+      // });
+      // let res = ["All"];
+      // pages.forEach((item) => {
+      //   let category = item.frontmatter.category;
+      //   if (typeof category === "string") {
+      //     res.push(category);
+      //   } else if (Array.isArray(category)) {
+      //     category.forEach((i) => {
+      //       res.push(i);
+      //     });
+      //   }
+      // });
+      // return new Set(res);
     },
   },
   components: {

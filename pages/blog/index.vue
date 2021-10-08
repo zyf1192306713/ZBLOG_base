@@ -57,10 +57,10 @@
                 {{ firstBlog.categoryName }}
               </span>
             </div>
-            <!-- <router-link class="bottom-right" :to="Blogs[0].path">
+            <nuxt-link class="bottom-right" :to="{name:'blogDetails',params:{id:firstBlog.id}}">
               阅读更多
               <i class="iconfont icon-Right-Arrow"></i>
-            </router-link> -->
+            </nuxt-link>
           </div>
         </div>
 
@@ -68,6 +68,7 @@
           <span class="recently-title">最近博客</span>
           <mobile-blog-item
             v-for="(item, index) in blogs"
+            :id="item.id"
             :key="index"
             :source="item.image"
             :title="item.title"
@@ -83,6 +84,7 @@
           <div class="blog-container">
             <blog-item
               v-for="(item, index) in blogs"
+              :id="item.id"
               :key="index"
               :source="item.image"
               :title="item.title"

@@ -29,6 +29,7 @@ export default {
     '@/plugins/element-ui',
     { src: '~/plugins/common.js', ssr: false },
     { src: '~/plugins/vue-particles.js', ssr: false },
+    // '@vuepress/blog'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -80,6 +81,14 @@ export default {
         name: 'blog',
         component: resolve(__dirname, 'pages/blog/index.vue')
       },
+      //博客详情
+      {
+        path: '/blogDetails',
+        name: 'blogDetails',
+        component: resolve(__dirname, 'pages/blog/blogDetails.vue')
+      },
+
+
       {
         path: '/tag',
         name: 'tag',

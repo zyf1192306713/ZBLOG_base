@@ -14,5 +14,12 @@ export default {
       url: '/blog/view/v1/article/getFirst',
       method: 'get',
     })
+  },
+
+  getById(param){
+    return request({
+      url: `/blog/view/v1/article/getById/${param}`,
+      method: 'get',
+    })
   }
 }

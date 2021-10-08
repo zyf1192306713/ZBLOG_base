@@ -1,20 +1,14 @@
 <template>
-  <router-link class="container" :to="goTo(text)">
-    {{ text }}
-  </router-link>
+  <nuxt-link class="container" :to="{name:'tag',param:{id:tag.id}}">{{ tag.name }}</nuxt-link>
 </template>
 
 <script>
 export default {
-  props: ["text"],
+  props:['tag'],
+  mounted(){
+    console.log(this.tag)
+  },
   methods: {
-    goTo(url) {
-      if (url === "All") {
-        return "/tag";
-      } else {
-        return `/tag/${url}`;
-      }
-    },
   },
 };
 </script>
