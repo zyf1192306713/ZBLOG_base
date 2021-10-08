@@ -22,13 +22,13 @@ var constant= {
                 logo: "Z",
                 // 主页
                 home: {
-                title: "Mr.Z",
-                subTitle: "在生活里，我们永远是初学者",
+                    title: "Mr.Z",
+                    subTitle: "在生活里，我们永远是初学者",
                 },
                 // 页脚
                 footer: {
-                // 版权信息
-                copyright: "Copyright © 2019-2020 Mr.Z | 版权所有",
+                    // 版权信息
+                    copyright: "Copyright © 2019-2020 Mr.Z | 版权所有",
                 },
                 // 个人信息卡片
                 infoCard: {
@@ -58,11 +58,11 @@ var constant= {
                     headerPic: "https://zboot.oss-cn-shanghai.aliyuncs.com/qrcode/avatar.jpg",
                 },
                 comment: {
-                showComment: true,
-                owner: "Libra11",
-                repo: "vuepress-theme-libra",
-                clientId: "07f6df24d9150e2da866",
-                clientSecret: "ec60c756133e4a608e60405110a1fd6c78f19ecc",
+                    showComment: true,
+                    owner: "Libra11",
+                    repo: "vuepress-theme-libra",
+                    clientId: "07f6df24d9150e2da866",
+                    clientSecret: "ec60c756133e4a608e60405110a1fd6c78f19ecc",
                 },
             },
         };
