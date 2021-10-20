@@ -41,10 +41,10 @@
         </div>
         <div class="detail">
           <div>
-            <Content />
+            <!-- <Content /> -->
           </div>
         </div>
-        <!-- <Comment v-if="comment.showComment"/> -->
+        <Comment v-if="comment.showComment"/>
       </div>
       <div class="right">
         <category-card />
@@ -91,16 +91,23 @@ export default {
       hs: [],
       blog: {},
       id: '',
-      comment: {},
+      comment: {
+        clientId:'',
+        clientSecret:'',
+        owner:'',
+        repo:'',
+        showComment:''
+      },
     };
   },
-    created() {
-        this.id = this.$route.params.id
-        //根据id获取
-        this.getById()
-        console.log(this.constant.theme.comment)
-        this.comment = this.constant.theme.comment
-    },
+  created() {
+      this.id = this.$route.params.id
+      //根据id获取
+      this.getById()
+      console.log(this.constant.theme.comment)
+      this.comment = this.constant.theme.comment
+      console.log(this.comment)
+  },
   mounted() {
     this.fixedTop();
     

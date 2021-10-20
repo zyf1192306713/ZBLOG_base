@@ -1,7 +1,7 @@
 <template>
   <nuxt-link :to="{name:'blogDetails',params:{id:id}}" class="blog-item">
     <div class="img-container">
-      <img :src="source" alt class="img" />
+      <img :src="image" alt class="img" />
     </div>
     <div class="contents">
       <div class="title">{{ title }}</div>
@@ -22,7 +22,7 @@
 
 <script>
 export default {
-  props: ["id","source", "title", "mdContent", "createTime", "categoryName", "path"],
+  props: ["id","image", "title", "mdContent", "createTime", "categoryName", "path"],
 };
 </script>
 

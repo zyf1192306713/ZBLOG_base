@@ -1,11 +1,11 @@
 import request from '@/utils/request'
 
 export default {
-  page() {
+  page(param) {
     return request({
-      url: '/blog/view/v1/article/list',
+      url: '/blog/view/v1/article/page',
       method: 'post',
-      data:{}
+      data:param
     })
   },
 

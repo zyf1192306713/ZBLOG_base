@@ -6,5 +6,5 @@ export default {
       url: '/blog/view/v1/tag/getAll',
       method: 'get'
     })
-  }
+  },
 }

@@ -29,7 +29,11 @@ export default {
     '@/plugins/element-ui',
     { src: '~/plugins/common.js', ssr: false },
     { src: '~/plugins/vue-particles.js', ssr: false },
+    // { src: '@vuepress/blog', ssr: false },
     // '@vuepress/blog'
+
+    
+
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

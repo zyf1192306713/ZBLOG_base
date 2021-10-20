@@ -25,30 +25,30 @@
           <mobile-label />
         </div>
         <div class="tags-blog-mobile">
-          <!-- <span class="tags-title">{{ $currentTag.key }}</span> -->
+          <span class="tags-title">{{ tag.name }}</span>
           <mobile-blog-item
-            v-for="(item, index) in Blogs"
+            v-for="(item, index) in blogs"
             :key="index"
-            :source="item.frontmatter.picture"
-            :title="item.frontmatter.title"
-            :content="item.frontmatter.desc"
-            :time="item.frontmatter.date"
+            :image="item.image"
+            :title="item.title"
+            :content="item.summary"
             :path="item.path"
-            :category="item.frontmatter.category"
+            :time="item.createTime"
+            :category="item.categoryName"
           />
         </div>
         <div class="tags-blog">
-          <!-- <span class="tags-title">{{ $currentTag.key }}</span> -->
+          <span class="tags-title">{{ tag.name }}</span>
           <div class="blog-container">
             <blog-item
-              v-for="(item, index) in Blogs"
+              v-for="(item, index) in blogs"
               :key="index"
-              :source="item.frontmatter.picture"
-              :title="item.frontmatter.title"
-              :content="item.frontmatter.desc"
+              :image="item.image"
+              :title="item.title"
+              :content="item.summary"
               :path="item.path"
-              :time="item.frontmatter.date"
-              :category="item.frontmatter.category"
+              :time="item.createTime"
+              :category="item.categoryName"
             />
           </div>
         </div>
@@ -72,40 +72,10 @@ import InfoCard from "../../components/InfoCard";
 import MobileBlogItem from "../../components/MobileBlogItem";
 import MobileLabel from "../../components/MobileLabel";
 import Pagination from "../../components/Pagination";
+
+import blogApi from "../../api/blog.js";
+
 export default {
-  data() {
-    return {
-      currentTag: "",
-      Blogs: [],
-      total: 0,
-    };
-  },
-  watch: {
-    // 路由变化 重新更新数据赋值
-    $route(to, from) {
-      if (to.fullPath !== from.fullPath) {
-        this.refresh();
-      }
-    },
-  },
-  methods: {
-    getBlogsByTag() {
-    //   return this.$pagination.pages;
-    },
-    changePage(n) {
-      this.$router
-        .push(`/tag/${this.$currentTag.key}/page/${n}`)
-        .catch(() => {});
-    },
-    refresh() {
-    //   this.total = this.$pagination._paginationPages.length;
-      this.total = 20;
-      this.Blogs = this.getBlogsByTag();
-    },
-  },
-  created() {
-    this.refresh();
-  },
   components: {
     MyHeader,
     MyFooter,
@@ -115,6 +85,37 @@ export default {
     MobileBlogItem,
     MobileLabel,
     Pagination,
+  },
+  data() {
+    return {
+      currentTag: "",
+      blogs: [],
+      total: 0,
+      tag:{},
+    };
+  },
+  mounted() {
+    this.tag = this.$route.params
+    this.refresh();
+  },
+  
+  methods: {
+
+    changePage(n) {
+      this.$router
+        .push(`/tag/${this.$currentTag.key}/page/${n}`)
+        .catch(() => {});
+    },
+    refresh() {
+      //根据标签获取文章
+      let param = {
+        tagId:this.tag.id
+      }
+      blogApi.page(param).then(res => {
+        this.blogs = res.data.data.records
+        this.total = res.data.data.current
+      });
+    },
   },
 };
 </script>

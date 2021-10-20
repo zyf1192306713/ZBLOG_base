@@ -1,7 +1,7 @@
 <template>
   <router-link to="path" class="mobile-blog-item">
     <div class="item-left">
-      <img :src="source" alt class="left-image" />
+      <img :src="image" alt class="left-image" />
     </div>
     <div class="item-right">
       <div class="title">{{ title }}</div>
@@ -23,7 +23,7 @@
 <script>
 export default {
   props: [
-    "source",
+    "image",
     "title",
     "mdContent",
     "creatTime",

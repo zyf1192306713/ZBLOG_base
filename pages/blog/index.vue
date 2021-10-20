@@ -70,7 +70,7 @@
             v-for="(item, index) in blogs"
             :id="item.id"
             :key="index"
-            :source="item.image"
+            :image="item.image"
             :title="item.title"
             :content="item.summary"
             :time="item.createTime"
@@ -86,7 +86,7 @@
               v-for="(item, index) in blogs"
               :id="item.id"
               :key="index"
-              :source="item.image"
+              :image="item.image"
               :title="item.title"
               :content="item.summary"
               :path="item.path"
@@ -138,8 +138,9 @@ export default {
   },
   methods: {
     getRecentBlogs(){
-      api.page().then(res => {
-        let pages = res.data.data
+      api.page({}).then(res => {
+        let pages = res.data.data.records
+        console.log(pages)
         pages.filter((item) => {
           return item !== undefined;
         });
