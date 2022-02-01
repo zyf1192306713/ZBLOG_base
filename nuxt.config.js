@@ -28,7 +28,7 @@ export default {
   plugins: [
     '@/plugins/element-ui',
     { src: '~/plugins/common.js', ssr: false },
-    { src: '~/plugins/vue-particles.js', ssr: false },
+    { src: '~/plugins/vue-particles', ssr: false },
     // { src: '@vuepress/blog', ssr: false },
     // '@vuepress/blog'
 

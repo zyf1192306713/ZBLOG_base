@@ -1,27 +1,29 @@
 <template>
-  <div class="labels-container">
+    <div class="labels-container">
     <!-- 头部导航 -->
     <my-header></my-header>
     <!-- 背景 -->
-    <vue-particles
-      class="bg"
-      color="#fff"
-      :particleOpacity="0.7"
-      :particlesNumber="60"
-      shapeType="circle"
-      :particleSize="4"
-      linesColor="#fff"
-      :linesWidth="1"
-      :lineLinked="true"
-      :lineOpacity="0.4"
-      :linesDistance="150"
-      :moveSpeed="6"
-      :hoverEffect="true"
-      hoverMode="grab"
-      :clickEffect="true"
-      clickMode="push"
-    ></vue-particles>
-    
+    <no-ssr>
+      <vue-particles
+        class="bg"
+        color="#fff"
+        :particleOpacity="0.7"
+        :particlesNumber="60"
+        shapeType="circle"
+        :particleSize="4"
+        linesColor="#fff"
+        :linesWidth="1"
+        :lineLinked="true"
+        :lineOpacity="0.4"
+        :linesDistance="150"
+        :moveSpeed="6"
+        :hoverEffect="true"
+        hoverMode="grab"
+        :clickEffect="true"
+        clickMode="push"
+      ></vue-particles>
+    </no-ssr>
+
     <!-- 中间的内容 -->
     <div class="label-content">
       <div class="left">
@@ -32,9 +34,9 @@
         </div>
 
         <div class="picLink">
-          <img :src="firstBlog.image" alt class="picture" />
+          <img :src="firstBlog.bannerList[0]" alt class="picture" />
         </div>
-        
+
         <div class="detail animated slow bounceInLeft">
           <div class="title-label">
             <span class="title">{{ firstBlog.title }}</span>
@@ -45,20 +47,21 @@
           </div>
           <!-- <div class="content">{{ Blogs[0].frontmatter.desc }}</div> -->
           <div class="content">{{ firstBlog.summary }}</div>
+          
           <div class="bottom-content">
             <div class="bottom-left">
               <span class="time">
-                <i class="iconfont iconshizhong"></i>
+                <i class="iconfont iconshizhong">{{ firstBlog.createTime }}</i>
                 <!-- {{ Blogs[0].frontmatter.date }} -->
-                {{ firstBlog.createTime }}
+                
               </span>
               <span class="likes">
-                <i class="iconfont iconlabel"></i>
-                {{ firstBlog.categoryName }}
+                <i class="iconfont iconlabel">{{ firstBlog.categoryName }}</i>
+                
               </span>
             </div>
             <nuxt-link class="bottom-right" :to="{name:'blogDetails',params:{id:firstBlog.id}}">
-              阅读更多
+              阅读更多{{firstBlog.id}}
               <i class="iconfont icon-Right-Arrow"></i>
             </nuxt-link>
           </div>
@@ -70,7 +73,7 @@
             v-for="(item, index) in blogs"
             :id="item.id"
             :key="index"
-            :image="item.image"
+            :image="item.bannerList[0]"
             :title="item.title"
             :content="item.summary"
             :time="item.createTime"
@@ -86,7 +89,7 @@
               v-for="(item, index) in blogs"
               :id="item.id"
               :key="index"
-              :image="item.image"
+              :image="item.bannerList[0]"
               :title="item.title"
               :content="item.summary"
               :path="item.path"
@@ -129,9 +132,12 @@ export default {
       blogs: [],
       total: 0,
       labels: [],
-      firstBlog: {}
+      firstBlog: {
+        bannerList:[]
+      }
     };
   },
+
   mounted(){
     this.getFirst();
     this.getRecentBlogs();
@@ -140,7 +146,6 @@ export default {
     getRecentBlogs(){
       api.page({}).then(res => {
         let pages = res.data.data.records
-        console.log(pages)
         pages.filter((item) => {
           return item !== undefined;
         });
@@ -149,7 +154,7 @@ export default {
     },
     getFirst(){
       api.getFirst().then(res => {
-        
+
         this.firstBlog = res.data.data
       })
     },
@@ -206,7 +211,7 @@ export default {
           width: 100%;
           display: block;
           position: relative;
-          border-radius: 0 0 20px 20px;
+          border-radius: 20px;
           box-shadow: 0 2px 12px 0 @blackColor;
           @media (max-width: 992px) {
             border-radius: 5px;
@@ -279,12 +284,12 @@ export default {
           display: none;
         }
         position: absolute;
-        top: 450px;
+        top: 280px;
         left: 40px;
         height: 300px;
         padding: 40px 20px 20px 20px;
         box-shadow: 0 2px 12px 0 @blackColor;
-        border-radius: 0 0 20px 20px;
+        border-radius: 20px;
         width: 100%;
         display: flex;
         flex-direction: column;

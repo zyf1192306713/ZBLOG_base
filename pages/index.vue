@@ -1,6 +1,7 @@
 <template>
   <div class="app">
-    <Navbar></Navbar>
+  <Navbar></Navbar>
+  <no-ssr>
     <vue-particles
       class="bg"
       color="#fff"
@@ -19,16 +20,18 @@
       :clickEffect="true"
       clickMode="push"
     ></vue-particles>
-    <div class="content">
+  </no-ssr>
+  
+  <div class="content">
 
-      <span class="content-text header-text animated slow bounceInLeft">{{this.home.title}}</span>
-      <span class="content-text sub-text animated slow lightSpeedIn">{{this.home.subTitle}}</span>
-      <router-link to="/contact" class="contact">
-        <i class="iconfont iconcontact"></i>
-        联系我
-      </router-link>
-    </div>
-    <Footer></Footer>
+    <span class="content-text header-text animated slow bounceInLeft">{{this.home.title}}</span>
+    <span class="content-text sub-text animated slow lightSpeedIn">{{this.home.subTitle}}</span>
+    <router-link to="/contact" class="contact">
+      <i class="iconfont iconcontact"></i>
+      联系我
+    </router-link>
+  </div>
+  <Footer></Footer>
   </div>
 </template>
 

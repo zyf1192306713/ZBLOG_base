@@ -1,24 +1,26 @@
 <template>
   <div class="article">
     <my-header></my-header>
-    <vue-particles
-      class="bg"
-      color="#fff"
-      :particleOpacity="0.7"
-      :particlesNumber="60"
-      shapeType="circle"
-      :particleSize="4"
-      linesColor="#fff"
-      :linesWidth="1"
-      :lineLinked="true"
-      :lineOpacity="0.4"
-      :linesDistance="150"
-      :moveSpeed="6"
-      :hoverEffect="true"
-      hoverMode="grab"
-      :clickEffect="true"
-      clickMode="push"
-    ></vue-particles>
+    <no-ssr>
+      <vue-particles
+        class="bg"
+        color="#fff"
+        :particleOpacity="0.7"
+        :particlesNumber="60"
+        shapeType="circle"
+        :particleSize="4"
+        linesColor="#fff"
+        :linesWidth="1"
+        :lineLinked="true"
+        :lineOpacity="0.4"
+        :linesDistance="150"
+        :moveSpeed="6"
+        :hoverEffect="true"
+        hoverMode="grab"
+        :clickEffect="true"
+        clickMode="push"
+      ></vue-particles>
+    </no-ssr>
     <div class="article-content">
       <div class="left">
         <span class="title animated rollIn">{{ blog.title }}</span>
@@ -41,10 +43,10 @@
         </div>
         <div class="detail">
           <div>
-            <!-- <Content /> -->
+            <Content />
           </div>
         </div>
-        <Comment v-if="comment.showComment"/>
+        <!-- <Comment v-if="comment.showComment"/> -->
       </div>
       <div class="right">
         <category-card />
@@ -58,13 +60,12 @@
           >
             <a :href="`#heading-${index}`" v-html="item.innerHTML"></a>
           </li> -->
-           <!-- <TOC/> -->
+          <!-- <TOC/> -->
         </div>
       </div>
     </div>
     <my-footer></my-footer>
   </div>
-  
 </template>
 
 <script>
@@ -104,6 +105,7 @@ export default {
       this.id = this.$route.params.id
       //根据id获取
       this.getById()
+      console.log(11111111111111)
       console.log(this.constant.theme.comment)
       this.comment = this.constant.theme.comment
       console.log(this.comment)

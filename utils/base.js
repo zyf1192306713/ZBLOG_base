@@ -1,5 +1,5 @@
 let localhost = 'localhost'
-let cloud  = 'zhongyufeng.top'
+let cloud  = '42.193.252.227'
 
 const info = {
     ip : localhost,

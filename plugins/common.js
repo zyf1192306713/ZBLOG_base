@@ -33,7 +33,7 @@ var constant= {
                 // 个人信息卡片
                 infoCard: {
                     // 头像
-                    headerPic: "https://zboot.oss-cn-shanghai.aliyuncs.com/qrcode/avatar.jpg",
+                    // headerPic: "https://zboot.oss-cn-shanghai.aliyuncs.com/qrcode/avatar.jpg",
                     // 姓名
                     name: "Mr.Z",
                     // 邮箱
@@ -55,7 +55,7 @@ var constant= {
                     // github地址
                     github: "https://github.com/zyf1192306713",
                     // 头像图片地址
-                    headerPic: "https://zboot.oss-cn-shanghai.aliyuncs.com/qrcode/avatar.jpg",
+                    // headerPic: "https://zboot.oss-cn-shanghai.aliyuncs.com/qrcode/avatar.jpg",
                 },
                 comment: {
                     showComment: true,
